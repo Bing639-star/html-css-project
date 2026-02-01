@@ -11,6 +11,60 @@
     <li data-tab="register">注册</li>
     <li data-tab="story">品牌故事</li>
 </ul>
-
+<!-- 首页内容 -->
+<div class="tab-content active" id="home">
+    <div class="carousel">
+        <!-- 轮播项1 -->
+        <div class="carousel-item active" style="background-image: url('./images/p1.jpeg');">
+            <h1>品质生活，从我们开始</h1>
+            <p>专注打造高品质产品，用心服务每一位用户，让生活更有温度、更有质感。</p>
+            <a href="javascript:;">了解更多</a>
+        </div>
+        <!-- 轮播项2 -->
+        <div class="carousel-item" style="background-image: url('./images/p2.jpg');">
+            <h1>匠心工艺，铸就经典</h1>
+            <p>数十年匠心沉淀，严苛把控每一个生产环节，以工艺成就品质，以经典致敬生活。</p>
+            <a href="javascript:;">产品中心</a>
+        </div>
+        <!-- 轮播项3 -->
+        <div class="carousel-item" style="background-image: url('./images/p3.jpg');">
+            <h1>创新升级，引领未来</h1>
+            <p>持续创新研发，紧跟时代步伐，以科技赋能产品，为用户带来全新体验。</p>
+            <a href="javascript:;">关于我们</a>
+        </div>
+    </div>
+</div>
+<!-- 注册页内容 -->
+<div class="tab-content" id="register">
+    <div class="register-page">
+        <div class="register-box">
+            <h2>用户注册</h2>
+            <form id="registerForm">
+                <div class="form-item">
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" placeholder="请输入3-16位字母/数字/下划线">
+                    <div class="form-tip">用户名格式错误</div>
+                </div>
+                <div class="form-item">
+                    <label for="phone">手机号</label>
+                    <input type="tel" id="phone" placeholder="请输入11位手机号">
+                    <div class="form-tip">手机号格式错误</div>
+                </div>
+                <div class="form-item">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" placeholder="请输入6-20位密码">
+                    <div class="form-tip">密码长度不符合要求</div>
+                </div>
+                <div class="form-item">
+                    <label for="repassword">确认密码</label>
+                    <input type="password" id="repassword" placeholder="请再次输入密码">
+                    <div class="form-tip">两次密码不一致</div>
+                </div>
+                <button type="button" class="register-btn" onclick="submitForm()">立即注册</button>
+            </form>
+            <div class="login-link">已有账号？<a href="javascript:;">立即登录</a></div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
