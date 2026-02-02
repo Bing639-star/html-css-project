@@ -66,5 +66,48 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+<script>
+    // 1. Tab标签切换功能
+    const tabNavs = document.querySelectorAll('.tab-nav li');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabNavs.forEach(nav => {
+        nav.addEventListener('click', () => {
+            // 移除所有active
+            tabNavs.forEach(n => n.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+            // 添加当前active
+            nav.classList.add('active');
+            const tabId = nav.dataset.tab;
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+
+    // 2. 轮播图功能
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const dots = document.querySelectorAll('.indicator-dot');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let currentIndex = 0;
+    let carouselTimer;
+
+    // 初始化轮播
+    function initCarousel() {
+        showItem(currentIndex);
+        // 自动播放
+        carouselTimer = setInterval(() => {
+            nextItem();
+        }, 5000);
+        // 鼠标悬停暂停
+        document.querySelector('.carousel').addEventListener('mouseenter', () => {
+            clearInterval(carouselTimer);
+        });
+        // 鼠标离开继续
+        document.querySelector('.carousel').addEventListener('mouseleave', () => {
+            carouselTimer = setInterval(() => {
+                nextItem();
+            }, 5000);
+        });
+    }
+</script>
+  </body>
+  </html>
