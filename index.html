@@ -109,6 +109,108 @@
             }, 5000);
         });
     }
+     // 显示指定轮播项
+  function showItem(index) {
+      // 边界判断
+      if (index >= carouselItems.length) currentIndex = 0;
+      if (index < 0) currentIndex = carouselItems.length - 1;
+      // 移除所有active
+      carouselItems.forEach(item => item.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      // 添加当前active
+      carouselItems[currentIndex].classList.add('active');
+      dots[currentIndex].classList.add('active');
+  }
+
+  // 下一项
+  function nextItem() {
+      currentIndex++;
+      showItem(currentIndex);
+  }
+
+  // 上一项
+  function prevItem() {
+      currentIndex--;
+      showItem(currentIndex);
+  }
+
+  // 点击指示器切换
+  dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+          currentIndex = index;
+          showItem(currentIndex);
+      });
+  });
+
+  // 点击按钮切换
+  prevBtn.addEventListener('click', prevItem);
+  nextBtn.addEventListener('click', nextItem);
+
+  // 3. 注册表单验证
+  function submitForm() {
+      const username = document.getElementById('username').value;
+      const phone = document.getElementById('phone').value;
+      const password = document.getElementById('password').value;
+      const repassword = document.getElementById('repassword').value;
+      let isOk = true;
+
+      // 用户名验证：3-16位字母/数字/下划线
+      const userReg = /^[a-zA-Z0-9_]{3,16}$/;
+      if (!userReg.test(username)) {
+          showTip('username', true);
+          isOk = false;
+      } else {
+          showTip('username', false);
+      }
+
+      // 手机号验证：11位数字，以1开头
+      const phoneReg = /^1[3-9]\d{9}$/;
+      if (!phoneReg.test(phone)) {
+          showTip('phone', true);
+          isOk = false;
+      } else {
+          showTip('phone', false);
+      }
+
+      // 密码验证：6-20位
+      if (password.length < 6 || password.length > 20) {
+          showTip('password', true);
+          isOk = false;
+      } else {
+          showTip('password', false);
+      }
+
+      // 确认密码验证
+      if (repassword !== password) {
+          showTip('repassword', true);
+          isOk = false;
+      } else {
+          showTip('repassword', false);
+      }
+
+      // 验证通过提示
+      if (isOk) {
+          alert('注册成功！');
+          document.getElementById('registerForm').reset();
+      }
+  }
+    // 显示/隐藏表单提示
+  function showTip(id, isShow) {
+      const input = document.getElementById(id);
+      const tip = input.nextElementSibling;
+      if (isShow) {
+          input.classList.add('error');
+          tip.classList.add('show');
+      } else {
+          input.classList.remove('error');
+          tip.classList.remove('show');
+      }
+  }
+
+  // 页面加载完成后初始化
+  window.onload = function() {
+      initCarousel();
+  };
 </script>
   </body>
   </html>
