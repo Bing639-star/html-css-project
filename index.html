@@ -224,6 +224,130 @@
             color: #2c3e50;
             font-weight: 500;
         }
+        /* 品牌故事页样式 */
+        .story-page {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .story-page h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .story-page h2::after {
+            content: "";
+            width: 80px;
+            height: 3px;
+            background: #2c3e50;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .story-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+        .story-img {
+            flex: 1;
+            min-width: 300px;
+        }
+        .story-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .story-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .story-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #34495e;
+        }
+        .story-text p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        .story-culture {
+            text-align: center;
+            margin-top: 80px;
+        }
+        .story-culture h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #34495e;
+        }
+        .culture-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .culture-item {
+            width: 200px;
+            padding: 30px 20px;
+            background: #f5f7fa;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .culture-item:hover {
+            transform: translateY(-10px);
+        }
+        .culture-item i {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .culture-item h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .tab-nav li {
+                margin: 0 10px;
+                font-size: 16px;
+                padding: 6px 12px;
+            }
+            .carousel-item h1 {
+                font-size: 32px;
+            }
+            .carousel-item p {
+                font-size: 16px;
+            }
+            .carousel-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+            .prev {
+                left: 15px;
+            }
+            .next {
+                right: 15px;
+            }
+            .register-box {
+                padding: 30px 20px;
+            }
+            .story-page h2 {
+                font-size: 28px;
+            }
+            .story-content {
+                gap: 20px;
+            }
+        }
     </style>
 
     </head>
@@ -254,6 +378,15 @@
                 <h1>创新升级，引领未来</h1>
                 <p>持续创新研发，紧跟时代步伐，以科技赋能产品，为用户带来全新体验。</p>
                 <a href="javascript:;">关于我们</a>
+            </div>
+            <!-- 轮播按钮 -->
+            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+            <!-- 轮播指示器 -->
+            <div class="carousel-indicator">
+                <span class="indicator-dot active" data-index="0"></span>
+                <span class="indicator-dot" data-index="1"></span>
+                <span class="indicator-dot" data-index="2"></span>
             </div>
         </div>
     </div>
@@ -286,6 +419,58 @@
                     <button type="button" class="register-btn" onclick="submitForm()">立即注册</button>
                 </form>
                 <div class="login-link">已有账号？<a href="javascript:;">立即登录</a></div>
+            </div>
+        </div>
+    </div>
+    <!-- 品牌故事页内容 -->
+    <div class="tab-content" id="story">
+        <div class="story-page">
+            <h2>品牌故事</h2>
+            <div class="story-content">
+                <div class="story-img">
+                    <img src=" ./images/pp1.jpg" alt="品牌起源">
+                </div>
+                <div class="story-text">
+                    <h3>品牌起源</h3>
+                    <p>我们的品牌诞生于对品质生活的极致追求，自创立之初，便以「用心打造每一件产品，让美好融入日常」为初心，摒弃浮躁与功利，专注于产品本身的打磨。</p>
+                    <p>从最初的小工坊，到如今的行业标杆，我们始终坚守初心，一步一个脚印，将匠心融入每一个细节，用品质赢得用户的信任与认可。</p>
+                    <p>十余年来，我们见证了行业的变迁，也始终保持着创新的活力，在传承经典的同时，不断探索新的可能，只为给用户带来更好的体验。</p>
+                </div>
+            </div>
+            <div class="story-content">
+                <div class="story-text" style="order: 1;">
+                    <h3>发展历程</h3>
+                    <p>2010年，品牌正式创立，推出首款核心产品，凭借极致的品质迅速打开市场；2015年，建立标准化生产基地，实现规模化生产；2020年，布局线上线下全渠道，服务覆盖全国。</p>
+                    <p>2023年，成立创新研发中心，引入前沿技术，推动产品全面升级；至今，我们已拥有数十万忠实用户，成为行业内兼具口碑与实力的品牌。</p>
+                </div>
+                <div class="story-img" style="order: 2;">
+                    <img src="./images/pp2.jpg" alt="发展历程">
+                </div>
+            </div>
+            <div class="story-culture">
+                <h3>品牌文化</h3>
+                <div class="culture-list">
+                    <div class="culture-item">
+                        <i class="fas fa-heart"></i>
+                        <h4>初心</h4>
+                        <p>以用户为中心，用心做好每一件产品</p>
+                    </div>
+                    <div class="culture-item">
+                        <i class="fas fa-hammer"></i>
+                        <h4>匠心</h4>
+                        <p>精益求精，严苛把控每一个细节</p>
+                    </div>
+                    <div class="culture-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <h4>创新</h4>
+                        <p>持续探索，以科技赋能产品升级</p>
+                    </div>
+                    <div class="culture-item">
+                        <i class="fas fa-handshake"></i>
+                        <h4>诚信</h4>
+                        <p>以诚立身，以信立业，坚守商业底线</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
